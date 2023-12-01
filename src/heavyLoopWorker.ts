@@ -1,4 +1,4 @@
-import { heavyLoop } from "./HeavyLoop";
+import { heavyLoop } from "./App";
 
 /* eslint-disable no-restricted-globals */
 self.onmessage = (event) => {

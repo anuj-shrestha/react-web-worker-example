@@ -7,8 +7,9 @@ const Shared: React.FC = () => {
   const [result, setResult] = useState<Int16Array | null>(null);
 
   const updateWorker = () => {
-    const newWorker = new Worker("./sharedWorker.ts");
-    const buffMemLength = new ArrayBuffer(1024); //byte length
+    const newWorker = new Worker(new URL("./sharedWorker.ts", import.meta.url));
+    const buffMemLength = new ArrayBuffer(10); //byte length
+    // const buffMemLength = new SharedArrayBuffer(1024); // will not work unless cors isolation is done
     let typedArr = new Int16Array(buffMemLength);
     //original data
     typedArr[0] = 20;
